@@ -1,0 +1,5 @@
+DistinctReducer.class
+WordCount.class
+TokenizerMapper.class
+DistinctMapper.class
+IntSumReducer.class

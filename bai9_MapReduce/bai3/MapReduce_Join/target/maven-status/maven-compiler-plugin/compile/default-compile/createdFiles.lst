@@ -1,0 +1,10 @@
+Main/SalaryRecord.class
+Main/JoinDriver$SalaryMapper.class
+Main/JoinGenericWritable.class
+Main/JobKey.class
+Main/JoinDriver$JoinReducer.class
+Main/JoinDriver$PeopleMapper.class
+Main/JoinDriver$JoinSortingComparator.class
+Main/JoinDriver$JoinGroupingComparator.class
+Main/JoinDriver.class
+Main/PeopleRecord.class

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3042105c-130c-4a6e-b98e-4abd7a6b9dec" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BInOydB0YRSTrPx0lR2PgIx0Sd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/media/lucifer/STORAGE/IMPORTANTS/Documents/INTERN/Experiments/MapReduce_Tuto",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn compile" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.numberCount">
+    <configuration name="WordCount" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="MAIN_CLASS_NAME" value="WordCount" />
+      <module name="MapReduce_Tuto" />
+      <option name="PROGRAM_PARAMETERS" value="input/numbers.csv output1 output2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="numberCount" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="WordCount" />
+      <module name="MapReduce_Tuto" />
+      <option name="PROGRAM_PARAMETERS" value="input/count_distinct.csv output1 output2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.WordCount" />
+      <item itemvalue="Application.numberCount" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3042105c-130c-4a6e-b98e-4abd7a6b9dec" name="Changes" comment="" />
+      <created>1656602438453</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656602438453</updated>
+      <workItem from="1656602439900" duration="112000" />
+      <workItem from="1656602584311" duration="142000" />
+      <workItem from="1656644391247" duration="1950000" />
+      <workItem from="1656664410310" duration="673000" />
+      <workItem from="1656667989803" duration="773000" />
+      <workItem from="1656668765301" duration="669000" />
+      <workItem from="1656669805455" duration="336000" />
+      <workItem from="1656731526203" duration="671000" />
+      <workItem from="1656732496389" duration="86000" />
+      <workItem from="1656733476653" duration="419000" />
+      <workItem from="1656906231047" duration="1453000" />
+      <workItem from="1656907887508" duration="2539000" />
+      <workItem from="1656916960608" duration="5438000" />
+      <workItem from="1656922793134" duration="191000" />
+      <workItem from="1656923412308" duration="219000" />
+      <workItem from="1656924145226" duration="44000" />
+      <workItem from="1656925944623" duration="19000" />
+      <workItem from="1656929156138" duration="749000" />
+      <workItem from="1656932059519" duration="15000" />
+      <workItem from="1657005514418" duration="2435000" />
+      <workItem from="1657008757905" duration="1134000" />
+      <workItem from="1657010607799" duration="15000" />
+      <workItem from="1657010625593" duration="1000" />
+      <workItem from="1657010738228" duration="814000" />
+    </task>
+    <servers />
+  </component>
+</project>
