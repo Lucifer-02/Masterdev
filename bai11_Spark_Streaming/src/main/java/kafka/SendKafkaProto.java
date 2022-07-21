@@ -31,7 +31,7 @@ public class SendKafkaProto {
         String topic = "Data-Tracking";
         Random random = new Random();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
 
             Faker faker = new Faker();
             Data.DataTracking trackData = Data.DataTracking.newBuilder()

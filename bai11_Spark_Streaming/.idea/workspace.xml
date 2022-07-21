@@ -32,7 +32,7 @@
       <recent name="kafka" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Consumer">
+  <component name="RunManager" selected="Application.producer">
     <configuration name="Consumer" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="spark.KafkaSpark" />
       <module name="bai11_Spark_Streaming" />
@@ -60,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658370931738</updated>
-      <workItem from="1658370933059" duration="338000" />
+      <workItem from="1658370933059" duration="1000000" />
     </task>
     <servers />
   </component>
