@@ -40,7 +40,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="producer" type="Application" factoryName="Application">
+    <configuration name="producer" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="kafka.SendKafkaProto" />
       <module name="bai11_Spark_Streaming" />
       <method v="2">
@@ -48,9 +48,14 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.producer" />
       <item itemvalue="Application.Consumer" />
+      <item itemvalue="Application.producer" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.producer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -60,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658370931738</updated>
-      <workItem from="1658370933059" duration="1000000" />
+      <workItem from="1658370933059" duration="8840000" />
     </task>
     <servers />
   </component>

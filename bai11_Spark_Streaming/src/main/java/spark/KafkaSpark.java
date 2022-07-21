@@ -36,26 +36,29 @@ public class KafkaSpark {
         JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(10));
 
 
+        // Create regex to parse records
         String pattern = "version:\\s\"(\\d+)\"\\nname:\\s\"(.+)\"\\ntimestamp:\\s(\\d+)(\\nphone_id:\\s\"(\\d+)\")?(\\nlon:\\s(\\d+))?(\\nlat:\\s(\\d+))?";
-        Pattern p = Pattern.compile(pattern);//. represents single character
+        Pattern p = Pattern.compile(pattern);
 
         //Define Kafka parameter
         Map<String, Object> kafkaParams = new HashMap<String, Object>();
-        kafkaParams.put("bootstrap.servers", "localhost:9092");
+//        kafkaParams.put("bootstrap.servers", "localhost:9092");
+        kafkaParams.put("bootstrap.servers", "172.17.80.26:9092");
         kafkaParams.put("key.deserializer", StringDeserializer.class);
         kafkaParams.put("value.deserializer", KafkaProtobufDeserializer.class);
         kafkaParams.put("group.id", "0");
-        kafkaParams.put("schema.registry.url", "http://localhost:8081");
+//        kafkaParams.put("schema.registry.url", "http://localhost:8081");
+        kafkaParams.put("schema.registry.url", "http://172.17.80.26:8081");
 
         // Automatically reset the offset to the earliest offset
         kafkaParams.put("auto.offset.reset", "earliest");
         kafkaParams.put("enable.auto.commit", false);
 
         //Define a list of Kafka topic to subscribe
-        Collection<String> topics = Arrays.asList("Data-Tracking");
+        Collection<String> topics = Arrays.asList("data_tracking_hoangnlv");
 
 
-        // print the protobuf data from Kafka as dataframe
+        // Consume protobuf data from Kafka
         JavaInputDStream<ConsumerRecord<String, Data.DataTracking>> stream = KafkaUtils.createDirectStream(
                 jssc,
                 LocationStrategies.PreferConsistent(),
@@ -66,7 +69,7 @@ public class KafkaSpark {
 //        mess.print();
 
 
-//      Convert RDDs of the words DStream to DataFrame and run SQL query
+//      Convert RDDs of the words DStream to DataFrame and save
         mess.foreachRDD((rdd, time) -> {
             SparkSession spark = JavaSparkSessionSingleton.getInstance(rdd.context().getConf());
 
