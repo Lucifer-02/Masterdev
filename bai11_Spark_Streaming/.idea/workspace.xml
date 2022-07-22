@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2CEbwUrWcOLxk3VIbiVJixJXxa1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,7 +27,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/media/lucifer/STORAGE/IMPORTANTS/Documents/INTERN/Masterdev/bai11_Spark_Streaming/src/main/java"
+    "last_opened_file_path": "/media/lucifer/STORAGE/IMPORTANTS/Documents/INTERN/Masterdev/bai11_Spark_Streaming/src/main/java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -32,28 +43,32 @@
       <recent name="kafka" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.producer">
+  <component name="RunManager" selected="Application.Consumer">
     <configuration name="Consumer" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="spark.KafkaSpark" />
-      <module name="bai11_Spark_Streaming" />
+      <module name="Spark_Streaming" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="producer" type="Application" factoryName="Application" temporary="true">
+    <configuration name="Producer" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="liberica-1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="kafka.SendKafkaProto" />
-      <module name="bai11_Spark_Streaming" />
+      <module name="Spark_Streaming" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Consumer" />
-      <item itemvalue="Application.producer" />
+      <item itemvalue="Application.Producer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.producer" />
+        <item itemvalue="Application.Producer" />
       </list>
     </recent_temporary>
   </component>
@@ -65,7 +80,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658370931738</updated>
-      <workItem from="1658370933059" duration="8840000" />
+      <workItem from="1658370933059" duration="12310000" />
+      <workItem from="1658398891556" duration="2211000" />
+      <workItem from="1658455771005" duration="22444000" />
     </task>
     <servers />
   </component>

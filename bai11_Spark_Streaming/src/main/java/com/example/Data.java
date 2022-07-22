@@ -105,7 +105,7 @@ public final class Data {
   /**
    * Protobuf type {@code DataTracking}
    */
-  public static final class DataTracking extends
+  public  static final class DataTracking extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:DataTracking)
       DataTrackingOrBuilder {
@@ -223,7 +223,6 @@ public final class Data {
      * <code>required string version = 1;</code>
      * @return Whether the version field is set.
      */
-    @java.lang.Override
     public boolean hasVersion() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -231,7 +230,6 @@ public final class Data {
      * <code>required string version = 1;</code>
      * @return The version.
      */
-    @java.lang.Override
     public java.lang.String getVersion() {
       java.lang.Object ref = version_;
       if (ref instanceof java.lang.String) {
@@ -250,7 +248,6 @@ public final class Data {
      * <code>required string version = 1;</code>
      * @return The bytes for version.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getVersionBytes() {
       java.lang.Object ref = version_;
@@ -271,7 +268,6 @@ public final class Data {
      * <code>required string name = 2;</code>
      * @return Whether the name field is set.
      */
-    @java.lang.Override
     public boolean hasName() {
       return ((bitField0_ & 0x00000002) != 0);
     }
@@ -279,7 +275,6 @@ public final class Data {
      * <code>required string name = 2;</code>
      * @return The name.
      */
-    @java.lang.Override
     public java.lang.String getName() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
@@ -298,7 +293,6 @@ public final class Data {
      * <code>required string name = 2;</code>
      * @return The bytes for name.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getNameBytes() {
       java.lang.Object ref = name_;
@@ -319,7 +313,6 @@ public final class Data {
      * <code>required fixed64 timestamp = 3;</code>
      * @return Whether the timestamp field is set.
      */
-    @java.lang.Override
     public boolean hasTimestamp() {
       return ((bitField0_ & 0x00000004) != 0);
     }
@@ -327,7 +320,6 @@ public final class Data {
      * <code>required fixed64 timestamp = 3;</code>
      * @return The timestamp.
      */
-    @java.lang.Override
     public long getTimestamp() {
       return timestamp_;
     }
@@ -338,7 +330,6 @@ public final class Data {
      * <code>optional string phone_id = 4;</code>
      * @return Whether the phoneId field is set.
      */
-    @java.lang.Override
     public boolean hasPhoneId() {
       return ((bitField0_ & 0x00000008) != 0);
     }
@@ -346,7 +337,6 @@ public final class Data {
      * <code>optional string phone_id = 4;</code>
      * @return The phoneId.
      */
-    @java.lang.Override
     public java.lang.String getPhoneId() {
       java.lang.Object ref = phoneId_;
       if (ref instanceof java.lang.String) {
@@ -365,7 +355,6 @@ public final class Data {
      * <code>optional string phone_id = 4;</code>
      * @return The bytes for phoneId.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getPhoneIdBytes() {
       java.lang.Object ref = phoneId_;
@@ -386,7 +375,6 @@ public final class Data {
      * <code>optional fixed64 lon = 5;</code>
      * @return Whether the lon field is set.
      */
-    @java.lang.Override
     public boolean hasLon() {
       return ((bitField0_ & 0x00000010) != 0);
     }
@@ -394,7 +382,6 @@ public final class Data {
      * <code>optional fixed64 lon = 5;</code>
      * @return The lon.
      */
-    @java.lang.Override
     public long getLon() {
       return lon_;
     }
@@ -405,7 +392,6 @@ public final class Data {
      * <code>optional fixed64 lat = 6;</code>
      * @return Whether the lat field is set.
      */
-    @java.lang.Override
     public boolean hasLat() {
       return ((bitField0_ & 0x00000020) != 0);
     }
@@ -413,7 +399,6 @@ public final class Data {
      * <code>optional fixed64 lat = 6;</code>
      * @return The lat.
      */
-    @java.lang.Override
     public long getLat() {
       return lat_;
     }
@@ -1057,7 +1042,6 @@ public final class Data {
        * <code>required fixed64 timestamp = 3;</code>
        * @return Whether the timestamp field is set.
        */
-      @java.lang.Override
       public boolean hasTimestamp() {
         return ((bitField0_ & 0x00000004) != 0);
       }
@@ -1065,7 +1049,6 @@ public final class Data {
        * <code>required fixed64 timestamp = 3;</code>
        * @return The timestamp.
        */
-      @java.lang.Override
       public long getTimestamp() {
         return timestamp_;
       }
@@ -1180,7 +1163,6 @@ public final class Data {
        * <code>optional fixed64 lon = 5;</code>
        * @return Whether the lon field is set.
        */
-      @java.lang.Override
       public boolean hasLon() {
         return ((bitField0_ & 0x00000010) != 0);
       }
@@ -1188,7 +1170,6 @@ public final class Data {
        * <code>optional fixed64 lon = 5;</code>
        * @return The lon.
        */
-      @java.lang.Override
       public long getLon() {
         return lon_;
       }
@@ -1219,7 +1200,6 @@ public final class Data {
        * <code>optional fixed64 lat = 6;</code>
        * @return Whether the lat field is set.
        */
-      @java.lang.Override
       public boolean hasLat() {
         return ((bitField0_ & 0x00000020) != 0);
       }
@@ -1227,7 +1207,6 @@ public final class Data {
        * <code>optional fixed64 lat = 6;</code>
        * @return The lat.
        */
-      @java.lang.Override
       public long getLat() {
         return lat_;
       }

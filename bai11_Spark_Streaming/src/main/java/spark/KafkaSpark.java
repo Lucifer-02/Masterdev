@@ -4,6 +4,8 @@ package spark;
 import com.example.Data;
 import io.confluent.kafka.serializers.protobuf.KafkaProtobufDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.common.serialization.Deserializer;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
@@ -32,8 +34,8 @@ public class KafkaSpark {
     public static void main(String[] args) throws InterruptedException, StreamingQueryException {
 
         // Create a local StreamingContext and batch interval of 10 second
-        SparkConf conf = new SparkConf().setMaster("local").setAppName("Kafka Spark Integration");
-        JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(10));
+        SparkConf conf = new SparkConf()./*setMaster("local").*/setAppName("Kafka Spark Integration");
+        JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(6));
 
 
         // Create regex to parse records
@@ -46,6 +48,7 @@ public class KafkaSpark {
         kafkaParams.put("bootstrap.servers", "172.17.80.26:9092");
         kafkaParams.put("key.deserializer", StringDeserializer.class);
         kafkaParams.put("value.deserializer", KafkaProtobufDeserializer.class);
+//        kafkaParams.put("value.deserializer", StringDeserializer.class);
         kafkaParams.put("group.id", "0");
 //        kafkaParams.put("schema.registry.url", "http://localhost:8081");
         kafkaParams.put("schema.registry.url", "http://172.17.80.26:8081");
@@ -55,7 +58,7 @@ public class KafkaSpark {
         kafkaParams.put("enable.auto.commit", false);
 
         //Define a list of Kafka topic to subscribe
-        Collection<String> topics = Arrays.asList("data_tracking_hoangnlv");
+        Collection<String> topics = Arrays.asList("data-tracking-hoangnlv");
 
 
         // Consume protobuf data from Kafka
@@ -65,8 +68,7 @@ public class KafkaSpark {
                 ConsumerStrategies.Subscribe(topics, kafkaParams)
         );
 
-        JavaDStream<String> mess = stream.map((Function<ConsumerRecord<String, Data.DataTracking>, String>) kafkaRecord -> String.valueOf((kafkaRecord.value())));
-//        mess.print();
+        JavaDStream<String> mess = stream.map((Function<ConsumerRecord<String, Data.DataTracking>, String>) kafkaRecord -> String.valueOf(((kafkaRecord.value()))));
 
 
 //      Convert RDDs of the words DStream to DataFrame and save
@@ -80,11 +82,13 @@ public class KafkaSpark {
                 if (m.find()) {
                     record.setVersion(m.group(1));
                     record.setName(m.group(2));
+
                     LocalDateTime timestamp = LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(m.group(3))), TimeZone.getDefault().toZoneId());
                     record.setYear(timestamp.getYear());
                     record.setMonth(timestamp.getMonthValue());
                     record.setDay(timestamp.getDayOfMonth());
                     record.setHour(timestamp.getHour());
+
                     record.setPhone_id(m.group(5));
                     record.setLon(m.group(7) == null || m.group(7).isEmpty() ? 0 : Long.parseLong(m.group(7)));
                     record.setLat(m.group(9) == null || m.group(9).isEmpty() ? 0 : Long.parseLong(m.group(9)));
@@ -93,15 +97,16 @@ public class KafkaSpark {
             });
 
             Dataset<Row> wordsDataFrame = spark.createDataFrame(rowRDD, Record.class);
-
+            wordsDataFrame.show();
 
             wordsDataFrame.write()
                     .mode("append")
                     .option("compression", "snappy")
+                    .option("checkpointLocation", "/user/hoangnlv/data_tracking/checkpoint")
                     .format("parquet")
                     .partitionBy("year", "month", "day", "hour")
-                    .save("./output/data_tracking.parquet");
-
+//                    .save("./output/data_tracking.parquet");
+                    .save("/user/hoangnlv/data_tracking/output/data_tracking.parquet");
         });
 
 

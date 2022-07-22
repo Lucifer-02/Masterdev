@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="bai11_Spark_Streaming" />
+        <module name="Spark_Streaming" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bai11_Spark_Streaming" target="11" />
+      <module name="bai11_Spark_Streaming" target="1.8" />
+      <module name="Spark_Streaming" target="1.8" />
+      <module name="structured-streaming" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
