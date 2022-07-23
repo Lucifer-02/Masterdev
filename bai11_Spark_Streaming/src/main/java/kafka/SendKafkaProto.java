@@ -17,13 +17,13 @@ public class SendKafkaProto {
         String bootstrapServers = "127.0.0.1:9092";
 
         Properties props = new Properties();
-//        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.17.80.26:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+//        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.17.80.26:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaProtobufSerializer.class);
 
-//        props.put("schema.registry.url", "http://localhost:8081");
-        props.put("schema.registry.url", "http://172.17.80.26:8081");
+        props.put("schema.registry.url", "http://localhost:8081");
+//        props.put("schema.registry.url", "http://172.17.80.26:8081");
 
         KafkaProducer<String, Data.DataTracking> producer = new KafkaProducer<>(props);
 

@@ -34,7 +34,7 @@ public class KafkaSpark {
     public static void main(String[] args) throws InterruptedException, StreamingQueryException {
 
         // Create a local StreamingContext and batch interval of 10 second
-        SparkConf conf = new SparkConf()./*setMaster("local").*/setAppName("Kafka Spark Integration");
+        SparkConf conf = new SparkConf().setMaster("local").setAppName("Kafka Spark Integration");
         JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(6));
 
 
@@ -44,14 +44,14 @@ public class KafkaSpark {
 
         //Define Kafka parameter
         Map<String, Object> kafkaParams = new HashMap<String, Object>();
-//        kafkaParams.put("bootstrap.servers", "localhost:9092");
-        kafkaParams.put("bootstrap.servers", "172.17.80.26:9092");
+        kafkaParams.put("bootstrap.servers", "localhost:9092");
+//        kafkaParams.put("bootstrap.servers", "172.17.80.26:9092");
         kafkaParams.put("key.deserializer", StringDeserializer.class);
         kafkaParams.put("value.deserializer", KafkaProtobufDeserializer.class);
 //        kafkaParams.put("value.deserializer", StringDeserializer.class);
         kafkaParams.put("group.id", "0");
-//        kafkaParams.put("schema.registry.url", "http://localhost:8081");
-        kafkaParams.put("schema.registry.url", "http://172.17.80.26:8081");
+        kafkaParams.put("schema.registry.url", "http://localhost:8081");
+//        kafkaParams.put("schema.registry.url", "http://172.17.80.26:8081");
 
         // Automatically reset the offset to the earliest offset
         kafkaParams.put("auto.offset.reset", "earliest");
@@ -102,11 +102,11 @@ public class KafkaSpark {
             wordsDataFrame.write()
                     .mode("append")
                     .option("compression", "snappy")
-                    .option("checkpointLocation", "/user/hoangnlv/data_tracking/checkpoint")
+//                    .option("checkpointLocation", "/user/hoangnlv/data_tracking/checkpoint")
                     .format("parquet")
                     .partitionBy("year", "month", "day", "hour")
-//                    .save("./output/data_tracking.parquet");
-                    .save("/user/hoangnlv/data_tracking/output/data_tracking.parquet");
+                    .save("./output/data_tracking.parquet");
+//                    .save("/user/hoangnlv/data_tracking/output/data_tracking.parquet");
         });
 
 
