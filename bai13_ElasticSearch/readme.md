@@ -2,7 +2,7 @@
 - Master + Kibana: 172.17.80.25
 
 # Thực hiện
-- Bài 1: 
+## Bài 1: 
 ```
 GET dantri/_search
 {
@@ -44,7 +44,7 @@ GET dantri/_search
 }
 ```
 
-- Bài 2: 
+## Bài 2: 
 ```
 GET dantri/_search
 {
@@ -70,7 +70,7 @@ GET dantri/_search
 }
 ```
 
-- Bài 3: 
+## Bài 3: 
 + file ./bai3/data/gen.py trích xuất title rồi tách cụm từ bằng pyvi ghi thành json file vào thư mục ./bai3/data/result
 + Tạo index cho suggestion
 
