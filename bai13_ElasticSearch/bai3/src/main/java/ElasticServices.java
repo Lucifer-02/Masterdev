@@ -7,17 +7,15 @@ import org.elasticsearch.search.suggest.Suggest;
 import org.elasticsearch.search.suggest.SuggestBuilder;
 import org.elasticsearch.search.suggest.SuggestBuilders;
 import org.elasticsearch.search.suggest.SuggestionBuilder;
+import org.elasticsearch.search.suggest.completion.CompletionSuggestionBuilder;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
 import org.springframework.data.elasticsearch.client.RestClients;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.Spliterators;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
-public class ElasticServices{
+public class ElasticServices {
     public static void main(String[] args) throws IOException {
         System.out.println(getSuggestion("Ha"));
     }
@@ -28,25 +26,31 @@ public class ElasticServices{
 
         RestHighLevelClient client = RestClients.create(clientConfiguration).rest();
 
+        // create a search source builder
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        SuggestionBuilder termSuggestionBuilder = SuggestBuilders.completionSuggestion("suggest_title").text(input).skipDuplicates(true);
-//        SuggestionBuilder termSuggestionBuilder1 = SuggestBuilders.completionSuggestion("suggest_title").text("Ha").skipDuplicates(true);
-
+        // create a suggest builder
         SuggestBuilder suggestBuilder = new SuggestBuilder();
+        // create a term suggestion builder
+        SuggestionBuilder<CompletionSuggestionBuilder> termSuggestionBuilder = SuggestBuilders.completionSuggestion("suggest_title").text("Ha").skipDuplicates(true);
+        // add the term suggestion builder to the suggest builder
         suggestBuilder.addSuggestion("title-suggest", termSuggestionBuilder);
-//        suggestBuilder.addSuggestion("title-suggest1", termSuggestionBuilder1);
-
-
+        // add the suggest builder to the search source builder
         searchSourceBuilder.suggest(suggestBuilder);
 
+        // create a search request
         SearchRequest searchRequest = new SearchRequest("title_suggest_hoangnlv");
+        // set the search source builder to the search request
         searchRequest.source(searchSourceBuilder);
 
+        // get the search response
         SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
 
-        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(searchResponse.getSuggest().iterator(), Spliterator.ORDERED), false)
-                .flatMap(suggestion -> suggestion.getEntries().get(0).getOptions().stream())
-                .map((Suggest.Suggestion.Entry.Option option) -> option.getText().toString())
-                .collect(Collectors.toList());
+        // get the suggestions
+        Suggest suggest = searchResponse.getSuggest();
+        // get the suggestions from the suggest
+        List<Suggest.Suggestion.Entry.Option> options = (List<Suggest.Suggestion.Entry.Option>) suggest.getSuggestion("title-suggest").getEntries().get(0).getOptions();
+
+        // get the text from the options
+        return options.stream().map(option -> option.getText().toString()).collect(Collectors.toList());
     }
 }
