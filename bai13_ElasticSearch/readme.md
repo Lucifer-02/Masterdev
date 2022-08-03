@@ -3,7 +3,7 @@
 
 # Thực hiện
 - Bài 1: 
-'''
+```
 GET dantri/_search
 {
     "query": {
@@ -42,10 +42,10 @@ GET dantri/_search
         }
     }
 }
-'''
+```
 
 - Bài 2: 
-'''
+```
 GET dantri/_search
 {
     "query": {
@@ -68,13 +68,13 @@ GET dantri/_search
         { "time" : "desc" }
     ]
 }
-
-'''
+```
 
 - Bài 3: 
 + file ./bai3/data/gen.py trích xuất title rồi tách cụm từ bằng pyvi ghi thành json file vào thư mục ./bai3/data/result
 + Tạo index cho suggestion
-'''
+
+```
 PUT title_suggest_hoangnlv
 {
     "mappings": {
@@ -85,8 +85,7 @@ PUT title_suggest_hoangnlv
         }
     }
 }
-
-'''
+```
 
 + Gửi data vừa tạo lên ElasticSearch server:
 > curl -s -H "Content-Type: application/json" -XPOST 172.17.80.25:9200/_bulk --data-binary @data_1.json
